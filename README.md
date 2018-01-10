@@ -31,12 +31,12 @@ Decorate your form component with reduxForm(). This will provide your component 
 Each input component must be placed inside the component prop of a Field component. The Field component will pass props such as value, onChange, onBLur etc to React.DOM.input component to populate its value and listen for changes.
 
 ```js
-import React, { Component } from 'react'
-import { reduxForm } from 'redux-form'
+import React, { Component } from "react";
+import { reduxForm } from "redux-form";
 
 class ContactForm extends Component {
   render() {
-    const { handleSubmit } = this.props
+    const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit}>
         <div>
@@ -45,9 +45,20 @@ class ContactForm extends Component {
         </div>
         <div>
           <label>Last Name</label>
-          <Field name="email" component={React.DOM.input} type="text" />
+          <Field name="lastName" component={React.DOM.input} type="text" />
         </div>
-    )
+        <div>
+          <label>Email</label>
+          <Field name="email" component={React.DOM.input} type="email" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    );
   }
 }
+
+//... decorate the form component
+ContactForm = reduxForm({
+  form: "contact"
+})(ContactForm);
 ```
