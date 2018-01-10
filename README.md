@@ -1,3 +1,9 @@
+# base principles of redux
+
+1. Everything that changes in your application including the data and ui state is contained in a single object called state.
+2. Statetree is read only. You cant modify it, if you want to change the chage, dispatch an action.
+3.
+
 # redux_form
 
 > Redux form primarily cinsusts if three things
